@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import {View} from 'react-native';
 
 import App from './components/app.js';
-import TabBar from './components/TabBar.js';
 import  {store} from './store/index.js';
 import {Provider} from 'react-redux';
 

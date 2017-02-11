@@ -4,16 +4,16 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import TodoItemList from './TodoItemList.js'
+import TodoItemListContainer from '../containers/TodoItemListContainer.js';
 
 export default class TodoList extends Component{
     constructor(props){
         super(props);
     }
     _navigateToSubview(title){
-        console.log("this.props.pageText is ", this.props.pageText);
+        console.log("this.props is ", this.props);
         this.props.navigator.push({
-            component: TodoItemList,
+            component: TodoItemListContainer,
             title: title,
             leftButtonIcon: 'chevron-left',
             onLeftButtonPress: () => this.props.navigator.pop(),

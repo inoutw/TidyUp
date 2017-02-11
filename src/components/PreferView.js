@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TextInput, AsyncStorage} from 'react-native';
 
 
-export default class WeekView extends Component{
+export default class PreferView extends Component{
     constructor(){
         super();
         this.state = {
@@ -19,10 +19,10 @@ export default class WeekView extends Component{
     }
     render(){
         return (
-            <Image source={require('../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
-                <View style={weekStyle.weekContainer}>
-                    <View style={weekStyle.textWrap}>
-                        <TextInput style={weekStyle.multiInput} multiline={true} ref="todoPlan"
+            <Image source={require('../static/images/note_back_tiny.png')} style={preferStyle.backgroundImage}>
+                <View style={preferStyle.preferContainer}>
+                    <View style={preferStyle.textWrap}>
+                        <TextInput style={preferStyle.multiInput} multiline={true} ref="todoPlan"
                                    defaultValue={this.state.plans}
                                    onChangeText={(text) => {
                                        //console.log("text is ",text);
@@ -36,8 +36,8 @@ export default class WeekView extends Component{
         )
     }
 }
-const weekStyle = StyleSheet.create({
-    weekContainer:{
+const preferStyle = StyleSheet.create({
+    preferContainer:{
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',

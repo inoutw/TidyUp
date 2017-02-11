@@ -31,7 +31,7 @@ const getInitailTasks = () => {
     )
 
 }
-const tasks = (state = {
+export const tasks = (state = {
     isFetching: false,
     didInvalidate: false,
     tasks: []
@@ -69,4 +69,40 @@ const tasks = (state = {
             
     }
 }
-export default tasks;
+export const todos = (state = {
+    isFetching: false,
+    didInvalidate: false,
+    todos: []
+} , action) => {
+    //console.log("reducers:: initailTasksState is ", initailTasksState);
+    //console.log('reducers:: ...state.tasks are ', ...state.tasks);
+    switch(action.type){
+        case TYPES.ADD_TODO:
+            return {
+                todos:[
+                    ...state.todos,
+                    action.todo]
+            }
+        case TYPES.DELETE_TODO:
+            return {
+                todo: state.todos.filter( todo => todo.todoid !== action.todoid)
+            }
+        case TYPES.GET_TODOS:
+            return {
+                ...state,
+                isFetching: true,
+                didInvalidate: false
+            }
+        case TYPES.RECEIVE_TODOS:
+            console.log("reducers:: action.todos is ", action.todos);
+            return {
+                ...state,
+                isFetching: false,
+                didInvalidate: false,
+                todos: action.todos,
+            }
+        default:
+            return state
+
+    }
+}

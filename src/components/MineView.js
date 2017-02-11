@@ -4,18 +4,18 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-export default class YearView extends Component{
+export default class MineView extends Component{
     render(){
         return (
-            <View style={yearStyle.yearContainer}>
+            <View style={mineStyle.mineContainer}>
                 <Text>this is me!</Text>
             </View>
         )
     }
 }
 
-const yearStyle = StyleSheet.create({
-    yearContainer:{
+const mineStyle = StyleSheet.create({
+    mineContainer:{
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',

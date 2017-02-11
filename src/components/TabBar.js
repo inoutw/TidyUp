@@ -6,7 +6,7 @@ import {View, Text, TabBarIOS, StyleSheet, NavigatorIOS} from 'react-native';
 
 import Icon from 'react-native-vector-icons/SimpleLineIcons.js';
 import TaskListContainer from '../containers/TaskListContianer.js';
-import WeekView from './WeekView.js';
+import PreferView from './PreferView.js';
 import App from './app.js'
 
 export default class TabBar extends Component{
@@ -54,7 +54,7 @@ export default class TabBar extends Component{
                           selectedTab: 'weekTab',
                         });
                       }}>
-                    {this._renderTab('WeekView', 'Week')}
+                    {this._renderTab('PreferView', 'Prefer')}
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="Month"
@@ -68,15 +68,15 @@ export default class TabBar extends Component{
                     {this._renderTab('MonthView', 'Month')}
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
-                    title="Year"
+                    title="Mine"
                     iconName="directions"
-                    selected={this.state.selectedTab === 'yearTab'}
+                    selected={this.state.selectedTab === 'mineTab'}
                     onPress={() => {
                         this.setState({
-                          selectedTab: 'yearTab',
+                          selectedTab: 'mineTab',
                         });
                       }}>
-                    {this._renderTab('YearView', 'Year')}
+                    {this._renderTab('MineView', 'Mine')}
                 </Icon.TabBarItemIOS>
             </TabBarIOS>
         )

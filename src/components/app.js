@@ -7,8 +7,8 @@ import {StyleSheet, View, NavigatorIOS, TabBarIOS, Text} from 'react-native';
 import TaskListContainer from '../containers/TaskListContianer.js';
 import TaskFormContainer from '../containers/TaskFormContainer.js';
 import TodoList from './TodoList.js';
-import WeekView from './WeekView.js';
-import YearView from './YearView.js';
+import PreferView from './PreferView.js';
+import MineView from './MineView.js';
 import Icon from 'react-native-vector-icons/SimpleLineIcons.js';
 import dismissKeyboard from 'react-native-dismiss-keyboard';
 
@@ -66,7 +66,7 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="todo"
-                    iconName="compass"
+                    iconName="directions"
                     selected={this.state.selectedTab === 'todoTab'}
                     onPress={() => {
                         this.setState({
@@ -83,7 +83,7 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="收藏"
-                    iconName="calendar"
+                    iconName="heart"
                     selected={this.state.selectedTab === 'preferTab'}
                     onPress={() => {
                         this.setState({
@@ -93,7 +93,7 @@ export default class App extends Component{
                     <NavigatorIOS
                         style={{flex:1}}
                         initialRoute={{
-                          component: WeekView,
+                          component: PreferView,
                           title: '收藏',
                           rightButtonTitle: '完成',
                           onRightButtonPress: () => { dismissKeyboard() }
@@ -102,17 +102,17 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="我"
-                    iconName="directions"
-                    selected={this.state.selectedTab === 'yearTab'}
+                    iconName="user"
+                    selected={this.state.selectedTab === 'meTab'}
                     onPress={() => {
                         this.setState({
-                          selectedTab: 'yearTab',
+                          selectedTab: 'meTab',
                         });
                       }}>
                     <NavigatorIOS
                         style={{flex:1}}
                         initialRoute={{
-                          component: YearView,
+                          component: MineView,
                           title: '我',
                         }}>
                     </NavigatorIOS>
@@ -138,11 +138,6 @@ const styleMeet = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
     },
-    // headerContainer:{
-    //     height: 75,
-    //     paddingTop: 20,
-    //     backgroundColor: 'rgba(98,176,255,1)',
-    // },
     bodyContainer: {
         flex:5,
         marginTop: 5,

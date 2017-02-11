@@ -107,7 +107,7 @@ export const getTodoItemList = () => (dispatch, getState) => {
         console.log('actionCreators:: AsyncStorage result is',result);
         result = result? result: "[]";
         return dispatch({
-            type: TYPES.RECEIVE_TASKS,
+            type: TYPES.RECEIVE_TODO,
             tasks: JSON.parse(result)
         })
     });
@@ -121,19 +121,19 @@ export function addTodoItem(todoItem){
             AsyncStorage.setItem("todoItems", JSON.stringify(todoItemArr));
         });
     return {
-        type: TYPES.ADD_TASK,
+        type: TYPES.ADD_TODO,
         todoItem
     };
 }
 export const deleteTodoItem = (todoItemId) => (dispatch, getState) => {
     console.log('actioncreators:: getState() is ', getState());
-    let todoItemsAfterDel = getState().tasks.tasks.filter( task => task.todoItemId !== todoItemId);
-    console.log('JSON.stringify(tasksAfterDel)', JSON.stringify(tasksAfterDel));
-    AsyncStorage.setItem('tasks', JSON.stringify(tasksAfterDel),(err, result) => {
+    let todoItemsAfterDel = getState().todos.todos.filter( task => task.todoItemId !== todoItemId);
+    console.log('JSON.stringify(tasksAfterDel)', JSON.stringify(todoItemsAfterDel));
+    AsyncStorage.setItem('todoItems', JSON.stringify(todoItemsAfterDel),(err, result) => {
         console.log('actionCreators:: AsyncStorage result is',result);
         return dispatch({
-            type: TYPES.DELETE_TASK,
-            taskid
+            type: TYPES.DELETE_TODO,
+            todoItemId
         })
     });
 }

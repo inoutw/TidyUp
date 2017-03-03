@@ -9,7 +9,7 @@ import TaskFormContainer from '../containers/TaskFormContainer.js';
 import TodoList from './TodoList.js';
 import PreferView from './PreferView.js';
 import MineView from './MineView.js';
-import Icon from 'react-native-vector-icons/SimpleLineIcons.js';
+import Icon from 'react-native-vector-icons/FontAwesome.js';
 import dismissKeyboard from 'react-native-dismiss-keyboard';
 
 class TabView extends Component{
@@ -45,11 +45,11 @@ export default class App extends Component{
     };
     render(){
         return (
-            <TabBarIOS unselectedTintColor="#666" tintColor="rgb(88,192,229)" barTintColor="#eee">
+            <TabBarIOS unselectedTintColor="#666" tintColor="#7A5AEC" barTintColor="#eee">
                 <Icon.TabBarItemIOS
-                    title="Now"
-                    iconName="energy"
-                    selectedIconName="energy"
+                    title="当下"
+                    iconName="bolt"
+                    selectedIconName="bolt"
                     selected={this.state.selectedTab === 'dayTab'}
                     onPress={() => {
                         this.setState({
@@ -66,7 +66,7 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="todo"
-                    iconName="directions"
+                    iconName="star-half-o"
                     selected={this.state.selectedTab === 'todoTab'}
                     onPress={() => {
                         this.setState({
@@ -83,7 +83,7 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="收藏"
-                    iconName="heart"
+                    iconName="gratipay"
                     selected={this.state.selectedTab === 'preferTab'}
                     onPress={() => {
                         this.setState({
@@ -102,7 +102,7 @@ export default class App extends Component{
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="我"
-                    iconName="user"
+                    iconName="user-o"
                     selected={this.state.selectedTab === 'meTab'}
                     onPress={() => {
                         this.setState({

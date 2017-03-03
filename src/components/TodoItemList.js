@@ -2,8 +2,9 @@
  * Created by qinai on 1/23/17.
  */
 import React, {Component, PropTypes} from 'react';
-import {ScrollView, ListView, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {ScrollView, ListView, StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native';
 import TodoItem from './TodoItem.js';
+import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 export default class TodoItemList extends Component{
     static propTypes = {
@@ -45,8 +46,12 @@ export default class TodoItemList extends Component{
                           style={itemListStyle.rowContainer}
                           enableEmptySections={true}
                 />
+                <View style={itemListStyle.inputItemView}>
+                    <Icon name="circle-thin" size={18} color="#ccc"/>
+                    <TextInput style={itemListStyle.inputItem}/>
+                </View>
                 <TouchableOpacity style={itemListStyle.addItem} onPress={() => this._addTodoItemBar()}>
-                    <Text>+ 添加项目</Text>
+                    <Text style={itemListStyle.addText}><Icon name="plus"></Icon> 添加项目</Text>
                 </TouchableOpacity>
             </ScrollView>
         );
@@ -56,7 +61,7 @@ export default class TodoItemList extends Component{
 const itemListStyle = StyleSheet.create({
     container:{
         flex: 7,
-        marginTop: 30,
+        marginTop: 20,
         paddingLeft: 6,
     },
     rowContainer:{
@@ -72,6 +77,19 @@ const itemListStyle = StyleSheet.create({
         borderBottomColor: "#eee",
         height: 30,
         alignItems: "flex-start",
-
+        marginTop: 10,
+    },
+    addText:{
+        color:"#7A5AEC",
+    },
+    inputItemView:{
+        flexDirection:'row',
+        borderBottomWidth: 1,
+        borderColor: '#eee',
+    },
+    inputItem:{
+        height: 30,
+        width: 350,
+        paddingLeft: 6,
     }
 });

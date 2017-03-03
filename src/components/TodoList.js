@@ -37,9 +37,9 @@ export default class TodoList extends Component{
                         </Icon>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={todoStyle.todoItem}>
+                <TouchableOpacity style={todoStyle.todoItem} onPress={() => this._navigateToSubview('Reading')}>
                     <View>
-                        <Icon name="book" color="green" size={18} onPress={() => this._navigateToSubview('Reading')}>
+                        <Icon name="book" color="green" size={18} >
                             <Text> Reading</Text>
                         </Icon>
                     </View>

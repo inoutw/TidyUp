@@ -15,11 +15,11 @@ class TaskListContianer extends Component{
     }
     componentWillMount(){
         // Injected by react-redux:
-        let { dispatch } = this.props
+        let { dispatch } = this.props;
         dispatch(TaskActions.getTasksFormStorage());
     }
     render(){
-        let { tasks, dispatch } = this.props
+        let { tasks, dispatch } = this.props;
         console.log("TaskListContainer:: this.state.tasks in render is ", tasks);
         // You want a child component to be completely unaware of Redux.
         let taskActionCreators = bindActionCreators(TaskActions, dispatch);
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
     return {
         tasks: state.tasks.tasks
     }
-}
+};
 //
 // const mapDispatchToProps = (dispatch) => {
 //     return {

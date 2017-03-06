@@ -2,25 +2,30 @@
  * Created by qinai on 1/23/17.
  */
 import React, {Component, PropTypes} from 'react';
-import {ScrollView, ListView, StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native';
+import {ScrollView, ListView, StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage} from 'react-native';
 import TodoItem from './TodoItem.js';
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 export default class TodoItemList extends Component{
     static propTypes = {
         todoItems: PropTypes.array,
-        deleteTodoItem: PropTypes.func.isRequired
+        deleteTodoItem: PropTypes.func.isRequired,
+        addTodoItem: PropTypes.func.isRequired
     }
     constructor(props) {
         super(props);
-        // var ds = new ListView.DataSource({rowHasChanged: (r1, r2)=>r1 !== r2});
-        // var sourceList = this.props.todoItems ? this.props.todoItems: [];
-        // this.state = {
-        //     dataSource: ds.cloneWithRows(sourceList),
-        //     todoItems: []
-        // };
+        this.state = {
+            itemText: ''
+        }
     }
-    _addTodoItemBar(){
+    componentWillMount(){
+
+    }
+    _addTodoItem(){
+        var addItem = this.refs.todoItem._lastNativeText;
+        this.props.addTodoItem(addItem);
+    }
+    _addTodoItemBar(text){
 
     }
     render(){
@@ -48,7 +53,9 @@ export default class TodoItemList extends Component{
                 />
                 <View style={itemListStyle.inputItemView}>
                     <Icon name="circle-thin" size={18} color="#ccc"/>
-                    <TextInput style={itemListStyle.inputItem}/>
+                    <TextInput style={itemListStyle.inputItem} ref="todoItem" onChangeText={(itemText) => {
+                        this.setState({itemText});
+                    }} onEndEditing = {() => this._addTodoItem()}/>
                 </View>
                 <TouchableOpacity style={itemListStyle.addItem} onPress={() => this._addTodoItemBar()}>
                     <Text style={itemListStyle.addText}><Icon name="plus"></Icon> 添加项目</Text>

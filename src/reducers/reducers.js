@@ -29,16 +29,12 @@ const getInitailTasks = () => {
             })
             .catch(e=>e)
     )
-
 }
 export const tasks = (state = {
     isFetching: false,
     didInvalidate: false,
     tasks: []
 } , action) => {
-    //getInitailTasks();
-    //console.log("reducers:: initailTasksState is ", initailTasksState);
-    //console.log('reducers:: ...state.tasks are ', ...state.tasks);
     switch(action.type){
         case TYPES.ADD_TASK:
             return {
@@ -74,14 +70,14 @@ export const todos = (state = {
     didInvalidate: false,
     todos: []
 } , action) => {
-    //console.log("reducers:: initailTasksState is ", initailTasksState);
-    //console.log('reducers:: ...state.tasks are ', ...state.tasks);
     switch(action.type){
         case TYPES.ADD_TODO:
+            console.log(state);
             return {
                 todos:[
                     ...state.todos,
-                    action.todo]
+                    action.todoItem
+                ]
             }
         case TYPES.DELETE_TODO:
             return {
@@ -94,7 +90,6 @@ export const todos = (state = {
                 didInvalidate: false
             }
         case TYPES.RECEIVE_TODOS:
-            console.log("reducers:: action.todos is ", action.todos);
             return {
                 ...state,
                 isFetching: false,

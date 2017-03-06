@@ -15,31 +15,24 @@ class TodoItemListContainer extends Component{
     }
     componentWillMount(){
         // Injected by react-redux:
-        let { dispatch } = this.props
+        let { dispatch } = this.props;
+
         dispatch(TodoActions.getTodoItemList());
     }
     render(){
-        let { todoItems, dispatch } = this.props
-        console.log("TodoItemListContainer:: this.state.todos in render is ", todoItems);
+        let { todoItems, dispatch } = this.props;
         let todoItemActionCreators = bindActionCreators(TodoActions, dispatch);
-        // if(todoItems && todoItems.length > 0 ){
-            return (
-                <TodoItemList todoItems={todoItems}
-                    {...todoItemActionCreators} />
-             )
-        // }else{
-        //     return (<View style={{backgroundColor:'green',flex:7}}><Text style={{flex:7}}>Start your day by adding todo item!</Text></View>)
-        // }
-        
+        return (
+            <TodoItemList todoItems={todoItems} {...todoItemActionCreators} />
+         );
+
 
     }
 }
 const mapStateToProps = (state) => {
-    console.log("TodoItemListContainer:: state is", state);
     return {
         todoItems: state.todos.todoItems
     }
 }
 
 export default connect(mapStateToProps)(TodoItemListContainer);
-//export default TaskListContianer;

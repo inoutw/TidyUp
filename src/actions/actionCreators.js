@@ -47,27 +47,28 @@ export const deleteTask = (taskid) => (dispatch, getState) => {
 };
 
 export const getTodoItemList = () => (dispatch, getState) => {
-    AsyncStorage.getItem('todoItems', (err, result) => {
-        result = result? result: "[]";
+    AsyncStorage.getItem('todo_shopping', (err, result) => {
+        var res = result? result: '{}';
+        console.log('res is ',res);
         return dispatch({
             type: TYPES.RECEIVE_TODO,
-            tasks: JSON.parse(result)
+            todoItem: res
         })
     });
 };
-export function addTodoItem(todoItem){
+export const addTodoItem = (todoItem) => (dispatch, getState) => {
     var todoItemStr = "";
-    AsyncStorage.getItem("todo_shopping")
-        .then((result)=> {
-            var rel = result ? result+',' : '';
-            todoItemStr += rel;
-            todoItemStr += todoItem;
-            AsyncStorage.setItem("todo_shopping", JSON.stringify(todoItemStr));
-        });
-    return {
-        type: TYPES.ADD_TODO,
-        todoItem
-    };
+    AsyncStorage.getItem("todo_shopping", (err, result) => {
+        var rel = result ? result+',' : '';
+        todoItemStr += rel;
+        todoItemStr += todoItem;
+        AsyncStorage.setItem("todo_shopping", todoItemStr);
+        return dispatch({
+            type: TYPES.ADD_TODO_SHOPPING,
+            todoItem: todoItemStr
+        })
+    })
+
 };
 export const deleteTodoItem = (todoItemId) => (dispatch, getState) => {
     let todoItemsAfterDel = getState().todos.todos.filter( task => task.todoItemId !== todoItemId);

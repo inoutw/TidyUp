@@ -34,7 +34,6 @@ class TaskListContianer extends Component{
     }
 }
 const mapStateToProps = (state) => {
-    console.log("TaskListConatiner:: state is", state);
     return {
         tasks: state.tasks.tasks
     }

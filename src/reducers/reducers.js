@@ -53,7 +53,6 @@ export const tasks = (state = {
                 didInvalidate: false
             }
         case TYPES.RECEIVE_TASKS:
-            console.log("reducers:: action.tasks is ", action.tasks);
             return {
                 ...state,
                 isFetching: false,
@@ -64,21 +63,20 @@ export const tasks = (state = {
             return state
             
     }
-}
+};
 export const todos = (state = {
     isFetching: false,
     didInvalidate: false,
-    todos: []
+    todos: {}
 } , action) => {
     switch(action.type){
-        case TYPES.ADD_TODO:
-            console.log(state);
-            return {
-                todos:[
-                    ...state.todos,
-                    action.todoItem
-                ]
-            }
+        case TYPES.ADD_TODO_SHOPPING:
+            console.log(state.todos);
+            return Object.assign({}, state, {
+                todos: {
+                    shopping: action.todoItem
+                }
+            });
         case TYPES.DELETE_TODO:
             return {
                 todo: state.todos.filter( todo => todo.todoid !== action.todoid)
@@ -100,4 +98,4 @@ export const todos = (state = {
             return state
 
     }
-}
+};

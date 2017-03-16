@@ -14,7 +14,6 @@ export default class PreferView extends Component{
     }
     componentWillMount(){
         AsyncStorage.getItem("plans", (err, result)=> {
-            console.log('plans result is', result);
             this.setState({plans:result})
         });
     }

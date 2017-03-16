@@ -7,19 +7,24 @@ import TodoItem from './TodoItem.js';
 import Icon from 'react-native-vector-icons/FontAwesome.js';
 
 export default class TodoItemList extends Component{
+    constructor() {
+        super();
+    }
+    state = {
+        itemText: '',
+        dataSource: '',
+        todoItems: []
+    }
     static propTypes = {
         todoItems: PropTypes.array,
         deleteTodoItem: PropTypes.func.isRequired,
         addTodoItem: PropTypes.func.isRequired
     }
-    constructor(props) {
-        super(props);
-        this.state = {
-            itemText: ''
-        }
-    }
-    componentWillMount(){
 
+    componentWillMount(){
+        AsyncStorage.getItem("todoItems", (err, result)=> {
+            this.setState({itemText:result})
+        });
     }
     _addTodoItem(){
         var addItem = this.refs.todoItem._lastNativeText;
@@ -28,21 +33,20 @@ export default class TodoItemList extends Component{
     _addTodoItemBar(text){
 
     }
+    _renderRow(rowData){
+        return (
+            <TodoItem key={rowData.todoItemId} todoItem={rowData}  todoAction={deleteTodoItem}/>
+        );
+    }
     render(){
         const { todoItems, deleteTodoItem } = this.props;
-        console.log("TodoItemList::this.props.todoItems is ", todoItems);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2)=>r1 !== r2});
         var todoList = todoItems? todoItems: [];
         this.state = {
             dataSource: ds.cloneWithRows(todoList),
-            todoItems: todoList
+            todoItems: todoList,
+            itemText: '',
         };
-
-        function _renderRow(rowData){
-            return (
-                <TodoItem key={rowData.todoItemId} todoItem={rowData}  todoAction={deleteTodoItem}/>
-            );
-        }
 
         return (
             <ScrollView style={itemListStyle.container}>
@@ -53,9 +57,10 @@ export default class TodoItemList extends Component{
                 />
                 <View style={itemListStyle.inputItemView}>
                     <Icon name="circle-thin" size={18} color="#ccc"/>
-                    <TextInput style={itemListStyle.inputItem} ref="todoItem" onChangeText={(itemText) => {
-                        this.setState({itemText});
-                    }} onEndEditing = {() => this._addTodoItem()}/>
+                    <TextInput style={itemListStyle.inputItem} ref="todoItem"  defaultValue={this.state.itemText}
+                               onChangeText={(text) =>{
+                                   AsyncStorage.setItem("todoItems", text);
+                               }} onEndEditing = {() => this._addTodoItem()}/>
                 </View>
                 <TouchableOpacity style={itemListStyle.addItem} onPress={() => this._addTodoItemBar()}>
                     <Text style={itemListStyle.addText}><Icon name="plus"></Icon> 添加项目</Text>

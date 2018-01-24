@@ -14,3 +14,9 @@ icon-paper-clip
 
 background:
 url(https://wwwimages2.adobe.com/content/dam/acom/en/lobby/lobby-bg-max2016-loggedin-1400x860.jpg) 35% 100% / cover no-repeat;
+
+
+today: clock; 今日
+week: 这周；
+month: 当月;
+year:  是年; Ionicon - navigate, badge

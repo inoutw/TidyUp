@@ -1,17 +1,18 @@
 {
   "name": "TidyUp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
-    "react": "15.2.1",
-    "react-native": "0.31.0",
+    "react": "^16.0.0",
+    "react-native": "^0.50.4",
     "react-native-dismiss-keyboard": "^1.0.0",
     "react-native-tooltip": "^4.1.0",
     "react-native-vector-icons": "^3.0.0",
+    "react-navigation": "^1.0.0-beta.27",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",

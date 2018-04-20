@@ -19,7 +19,7 @@ export default class WeekView extends Component{
     }
     render(){
         return (
-            <Image source={require('../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
+            <Image source={require('../../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
                 <View style={weekStyle.weekContainer}>
                     <View style={weekStyle.textWrap}>
                         <TextInput style={weekStyle.multiInput} multiline={true} ref="todoPlan"

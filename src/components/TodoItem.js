@@ -1,9 +1,10 @@
 /**
  * Created by qinai on 1/23/17.
  */
-import React, {PropTypes} from 'react';
+import React, {Component} from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import PropTypes from 'prop-types';
 
 const TodoItem = ({ todoItem, todoAction, itemColor })=>{
     return (

@@ -1,8 +1,9 @@
 /**
  * Created by qinai on 12/12/16.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {View, StyleSheet, TouchableHighlight} from 'react-native';
+import PropTypes from 'prop-types';
 
 var colorArr= ['#f00', 'orange', '#00f', 'green', 'purple'];
 

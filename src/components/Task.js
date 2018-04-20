@@ -1,9 +1,10 @@
 /**
  * Created by qinai on 12/8/16.
  */
-import React, {PropTypes} from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import TaskToolTip from './TaskToolTip.js';
+import PropTypes from 'prop-types';
 
 const Task = ({ task, taskAction })=>{
     /*var taskSymbalStamp = '';

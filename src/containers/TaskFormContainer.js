@@ -2,9 +2,9 @@
  * Created by qinai on 12/17/16.
  */
 
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {View, StyleSheet, Text, TouchableHighlight, TextInput, Modal} from 'react-native';
-
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 

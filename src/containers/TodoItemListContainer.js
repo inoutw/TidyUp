@@ -1,10 +1,11 @@
 /**
  * Created by qinai on 1/23/17.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {AsyncStorage, Text} from 'react-native';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as TodoActions from '../actions/actionCreators.js';
 import TodoItemList from '../components/TodoItemList.js';

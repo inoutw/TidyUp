@@ -1,9 +1,10 @@
 /**
  * Created by qinai on 12/25/16.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 
 export default class Funs extends Component{
     static propTypes = {

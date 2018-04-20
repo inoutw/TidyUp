@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import TodoItemList from './TodoItemList.js'
+import { TodoItemList } from '../../components';
 
 export default class TodayView extends Component{
     constructor(props){

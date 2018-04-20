@@ -1,11 +1,15 @@
-import { } from 'react-navigation';
+import React, { Component } from 'react';
+import { Platform } from 'react-native';
+import { TabNavigator, TabBarBottom, TabBarTop } from 'react-navigation';
+import styles from '../styles';
+
 import TodayView from './today/TodayView';
 import WeekView from './week/WeekView';
 import MonthView from './month/MonthView';
 import YearView from './year/YearView';
 import Icon from 'react-native-vector-icons/SimpleLineIcons.js';
 
-export default routeConfig = {
+let tabRoute = {
 	TodayTab: {
 		screen: TodayView,
 		navigationOptions: {
@@ -59,3 +63,40 @@ export default routeConfig = {
 		}
 	}
 }
+const TabNav = TabNavigator(tabRoute,
+	{
+		tabBarPosition: 'bottom',
+		animationEnabled: false,
+		swipeEnabled: false,
+		lazy: true,
+		tabBarComponent: Platform.OS === 'android' ? TabBarBottom : TabBarTop,
+		tabBarOptions: {
+			showIcon: true,
+			activeTintColor: styles.themeColor,
+			inactiveTintColor: '#999',
+			labelStyle: {
+				fontSize: 12,
+				marginTop: Platform.OS === 'android' ? 3 : 4,
+			},
+			style: {
+				backgroundColor: '#fff',
+				height: 60,
+				borderTopColor: '#e8e8e8',
+				borderTopWidth: 1,
+				elevation: 0,
+				paddingBottom: 4,
+			},
+			tabStyle: {
+				padding: 0,
+				paddingTop: 4,
+				justifyContent: 'center',
+			},
+			indicatorStyle: { backgroundColor: "transparent" },
+		}
+	});
+
+export default routes = {
+	Root: {
+		screen: TabNav
+	}
+};

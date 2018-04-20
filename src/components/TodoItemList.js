@@ -1,9 +1,10 @@
 /**
  * Created by qinai on 1/23/17.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {ScrollView, ListView, StyleSheet, View} from 'react-native';
 import TodoItem from './TodoItem.js';
+import PropTypes from 'prop-types';
 
 export default class TodoItemList extends Component{
     static propTypes = {

@@ -1,10 +1,11 @@
 /**
  * Created by qinai on 12/8/16.
  */
-import React, {PropTypes} from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, Image, Text} from 'react-native';
 import ToolTip from 'react-native-tooltip';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import PropTypes from 'prop-types';
 
 /* v0: image to show the priority
 var priorIconMap = {

@@ -1,9 +1,10 @@
 /**
  * Created by qinai on 12/8/16.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {ScrollView, ListView, StyleSheet, View} from 'react-native';
 import Task from './Task.js';
+import PropTypes from 'prop-types';
 import {fetchTasksIfNeeded} from '../actions/actionCreators.js';
 //v0:
 // class TaskList extends Component{

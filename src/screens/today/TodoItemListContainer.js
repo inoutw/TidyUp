@@ -1,14 +1,14 @@
 /**
  * Created by qinai on 1/23/17.
  */
-import React, {Component} from 'react';
-import {AsyncStorage, Text} from 'react-native';
+import React, { Component } from 'react';
+import { AsyncStorage, Text } from 'react-native';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import * as TodoActions from '../actions/actionCreators.js';
-import TodoItemList from '../components/TodoItemList.js';
+import * as TodoActions from '@actions/actionCreators';
+import TodoItemList from '@components/TodoItemList';
 
 class TodoItemListContainer extends Component{
     constructor(){
@@ -20,7 +20,7 @@ class TodoItemListContainer extends Component{
         dispatch(TodoActions.getTodoItemList());
     }
     render(){
-        let { todoItems, dispatch } = this.props
+		let { todoItems, dispatch } = this.props;
         console.log("TodoItemListContainer:: this.state.tasks in render is ", todoItems);
         let todoItemActionCreators = bindActionCreators(TodoActions, dispatch);
         if(todoItems && todoItems.length > 0 ){

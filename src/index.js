@@ -2,17 +2,17 @@
  * Created by qinai on 11/20/16.
  */
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-import App from './screens';
-import { store } from './store/index.js';
+import AppIndex from './screens';
+import { store } from './store';
 import { Provider } from 'react-redux';
 
 export default class Root extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<App />
+				<AppIndex style={{flex: 1}}/>
 			</Provider>
 		)
 	}

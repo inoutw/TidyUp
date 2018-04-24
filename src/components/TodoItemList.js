@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import {ScrollView, ListView, StyleSheet, View} from 'react-native';
-import TodoItem from './TodoItem.js';
+import TodoItem from '@components/TodoItem';
 import PropTypes from 'prop-types';
 
 export default class TodoItemList extends Component{
@@ -30,7 +30,7 @@ export default class TodoItemList extends Component{
 
         function _renderRow(rowData){
             return (
-                <TodoItem key={rowData.todoItemId} todoItem={rowData}  todoAction={deleteTodoItem}/>
+                <TodoItem key={rowData.todoItemId} todoItem={rowData} todoAction={deleteTodoItem}/>
             );
         }
 

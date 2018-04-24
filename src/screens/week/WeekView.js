@@ -1,8 +1,8 @@
 /**
  * Created by qinai on 12/27/16.
  */
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TextInput, AsyncStorage} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image, TextInput, AsyncStorage, ImageBackground} from 'react-native';
 
 
 export default class WeekView extends Component{
@@ -14,12 +14,11 @@ export default class WeekView extends Component{
     }
     componentWillMount(){
         AsyncStorage.getItem("plans", (err, result)=> {
-            console.log('plans result is', result);
             this.setState({plans:result})});
     }
     render(){
         return (
-            <Image source={require('../../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
+            <ImageBackground source={require('../../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
                 <View style={weekStyle.weekContainer}>
                     <View style={weekStyle.textWrap}>
                         <TextInput style={weekStyle.multiInput} multiline={true} ref="todoPlan"
@@ -32,7 +31,7 @@ export default class WeekView extends Component{
                         </TextInput>
                     </View>
                 </View>
-            </Image>
+            </ImageBackground>
         )
     }
 }

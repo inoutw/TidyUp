@@ -102,10 +102,8 @@ export const deleteTask = (taskid) => (dispatch, getState) => {
 }
 
 export const getTodoItemList = () => (dispatch, getState) => {
-    console.log('getTodoItemList:: getState() is ', getState());
     AsyncStorage.getItem('todoItems', (err, result) => {
-        console.log('actionCreators:: AsyncStorage result is',result);
-        result = result? result: "[]";
+        result = result || "[]";
         return dispatch({
             type: TYPES.RECEIVE_TASKS,
             tasks: JSON.parse(result)

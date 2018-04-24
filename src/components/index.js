@@ -1,4 +1,4 @@
-import TodoItemList from './TodoItemList';
+import TodoItem from './TodoItem';
 export {
-	TodoItemList
+	TodoItem
 }

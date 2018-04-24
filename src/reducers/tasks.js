@@ -57,7 +57,6 @@ const tasks = (state = {
                 didInvalidate: false
             }
         case TYPES.RECEIVE_TASKS:
-            console.log("reducers:: action.tasks is ", action.tasks);
             return {
                 ...state,
                 isFetching: false,

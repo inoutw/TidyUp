@@ -3,8 +3,8 @@
  */
 'use strict';
 
-import * as TYPES from './types.js';
-import {AsyncStorage} from 'react-native';
+import * as TYPES from './tasks';
+import { AsyncStorage } from 'react-native';
 /*
  * v0: Async get tasks from remote url
 export const getTasks = () => ({

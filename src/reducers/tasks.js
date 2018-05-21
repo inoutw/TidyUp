@@ -3,8 +3,8 @@
  */
 'use strict';
 
-import * as TYPES from '../actions/types.js';
-import ApiUtils from '../utils/ApiUtils.js';
+import * as TYPES from '../actions/tasks';
+import ApiUtils from '../utils/ApiUtils';
 
 const task = (state, action) => {
     switch(action.type){

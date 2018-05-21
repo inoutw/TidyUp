@@ -13,22 +13,22 @@ export default class WeekView extends Component{
         }
     }
     componentWillMount(){
-        AsyncStorage.getItem("plans", (err, result)=> {
-            this.setState({plans:result})});
+		AsyncStorage.getItem("plans", (err, result) => {
+			this.setState({ plans: result })
+		});
     }
     render(){
         return (
             <ImageBackground source={require('../../static/images/note_back_tiny.png')} style={weekStyle.backgroundImage}>
                 <View style={weekStyle.weekContainer}>
                     <View style={weekStyle.textWrap}>
-                        <TextInput style={weekStyle.multiInput} multiline={true} ref="todoPlan"
-                                   defaultValue={this.state.plans}
-                                   onChangeText={(text) => {
-                                       //console.log("text is ",text);
-                                       AsyncStorage.setItem("plans", text);
-                                   }}
-                        >
-                        </TextInput>
+						<TextInput style={weekStyle.multiInput} multiline={true} ref="todoPlan"
+							underlineColorAndroid="transparent"
+							defaultValue={this.state.plans}
+							onChangeText={(text) => {
+								AsyncStorage.setItem("plans", text);
+							}}
+                        />
                     </View>
                 </View>
             </ImageBackground>
@@ -43,7 +43,6 @@ const weekStyle = StyleSheet.create({
     },
     backgroundImage: {
         flex: 1,
-        resizeMode: 'cover',
     },
     textWrap:{
         borderColor: '#ddd',

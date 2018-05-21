@@ -16,7 +16,7 @@ class TodoItemListContainer extends Component{
     }
     componentWillMount(){
         // Injected by react-redux:
-        let { dispatch } = this.props
+		let { dispatch } = this.props;
         dispatch(TodoActions.getTodoItemList());
     }
     render(){
